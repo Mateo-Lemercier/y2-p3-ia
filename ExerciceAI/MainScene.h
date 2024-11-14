@@ -1,6 +1,12 @@
 ﻿#pragma once
-#include "Zombie.h"
-#include "Plant.h"
+
+namespace sf { class Event; }
+class Zombie;
+class Plant;
+
+#include <vector>
+#include <array>
+#include <SFML/Graphics/Rect.hpp>
 #include "LightEngine/Scene.h"
 
 
@@ -12,6 +18,7 @@ public:
     void Update() override;
 
 protected:
-    Zombie* pZombie;
-    Plant* pPlant;
+    std::vector<Zombie*> mZombies = {};
+    std::array<Plant*, 6> mPlants = {};
+    std::array<sf::FloatRect, 6> mLanes = {};
 };
